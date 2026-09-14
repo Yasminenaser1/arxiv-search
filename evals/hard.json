@@ -1,0 +1,252 @@
+[
+  {
+    "query": "deep neural network convergence high dimensional equations solution",
+    "relevant_id": "arxiv-25191",
+    "title": "Convergence of the Deep BSDE Method for Coupled FBSDEs"
+  },
+  {
+    "query": "interpreting neural networks for image classification performance",
+    "relevant_id": "arxiv-28382",
+    "title": "Deep Features Analysis with Attention Networks"
+  },
+  {
+    "query": "generating catalogs from large optical telescope image datasets",
+    "relevant_id": "arxiv-18184",
+    "title": "Approximate Inference for Constructing Astronomical Catalogs from Images"
+  },
+  {
+    "query": "non parametric visual recognition methods for open set problems",
+    "relevant_id": "arxiv-22492",
+    "title": "Improving Generalization via Scalable Neighborhood Component Analysis"
+  },
+  {
+    "query": "parallelizing neural network training process on distributed computing arch 4d k",
+    "relevant_id": "arxiv-14643",
+    "title": "Parallelizing Over Artificial Neural Network Training Runs with Multigrid"
+  },
+  {
+    "query": "optimal resource allocation in wireless communication systems",
+    "relevant_id": "arxiv-21940",
+    "title": "Learning Optimal Resource Allocations in Wireless Systems"
+  },
+  {
+    "query": "learning gaussian policy in reinforcement learning using smoothed q values",
+    "relevant_id": "arxiv-18332",
+    "title": "Smoothed Action Value Functions for Learning Gaussian Policies"
+  },
+  {
+    "query": "convolutional neural networks with generative and classification capabiliti 10d k",
+    "relevant_id": "arxiv-13125",
+    "title": "Introspective Classification with Convolutional Nets"
+  },
+  {
+    "query": "asynchronous distributed optimization algorithm for large datasets",
+    "relevant_id": "arxiv-7249",
+    "title": "Asynchronous Distributed ADMM for Large-Scale Optimization- Part II: Linear Convergence Analysis and Numerical Performance"
+  },
+  {
+    "query": "image captioning datasets with diverse object recognition capabilities",
+    "relevant_id": "arxiv-51856",
+    "title": "Egoshots, an ego-vision life-logging dataset and semantic fidelity metric to evaluate diversity in image captioning models"
+  },
+  {
+    "query": "deep neural networks for real time physical interactions",
+    "relevant_id": "arxiv-20836",
+    "title": "The streaming rollout of deep networks - towards fully model-parallel execution"
+  },
+  {
+    "query": "convergence rate of neural networks with overfitting models",
+    "relevant_id": "arxiv-28773",
+    "title": "Global convergence of neuron birth-death dynamics"
+  },
+  {
+    "query": "image classification using prototype based feature extraction",
+    "relevant_id": "arxiv-3101",
+    "title": "Machine learning on images using a string-distance"
+  },
+  {
+    "query": "federated learning of neural networks on edge devices",
+    "relevant_id": "arxiv-42229",
+    "title": "Federated Neuromorphic Learning of Spiking Neural Networks for Low-Power Edge Intelligence"
+  },
+  {
+    "query": "blind spectral image enhancement from single rgb images",
+    "relevant_id": "arxiv-12776",
+    "title": "Learned Spectral Super-Resolution"
+  },
+  {
+    "query": "designing evaluation functions for automated generalization of buildings da 2d k",
+    "relevant_id": "arxiv-1487",
+    "title": "Designing generalisation evaluation function through human-machine dialogue"
+  },
+  {
+    "query": "detecting micro events in eeg signals with deep learning method",
+    "relevant_id": "arxiv-26812",
+    "title": "DOSED: a deep learning approach to detect multiple sleep micro-events in EEG signal"
+  },
+  {
+    "query": "images fooling deep neural networks with imperceptible changes",
+    "relevant_id": "arxiv-14599",
+    "title": "Adversarial-Playground: A Visualization Suite Showing How Adversarial Examples Fool Deep Learning"
+  },
+  {
+    "query": "learning distance metrics in dynamic data environments",
+    "relevant_id": "arxiv-8757",
+    "title": "Nonstationary Distance Metric Learning"
+  },
+  {
+    "query": "physics informed neural networks with uncertainty estimation",
+    "relevant_id": "arxiv-25499",
+    "title": "Adversarial Uncertainty Quantification in Physics-Informed Neural Networks"
+  },
+  {
+    "query": "improving graph convolutional networks for incomplete data analysis",
+    "relevant_id": "arxiv-44062",
+    "title": "Graph-Revised Convolutional Network"
+  },
+  {
+    "query": "extracting large language model using query access attacks",
+    "relevant_id": "arxiv-42636",
+    "title": "Thieves on Sesame Street! Model Extraction of BERT-based APIs"
+  },
+  {
+    "query": "sparse linear regression online learning algorithms",
+    "relevant_id": "arxiv-13938",
+    "title": "Adaptive Feature Selection: Computationally Efficient Online Sparse Linear Regression under RIP"
+  },
+  {
+    "query": "security vulnerabilities in multi armed bandit algorithms",
+    "relevant_id": "arxiv-24931",
+    "title": "Adversarial Attacks on Stochastic Bandits"
+  },
+  {
+    "query": "generative models for producing varied speech prosody in synthesis",
+    "relevant_id": "arxiv-34987",
+    "title": "Using generative modelling to produce varied intonation for speech synthesis"
+  },
+  {
+    "query": "urban traffic flow prediction using attention mechanisms",
+    "relevant_id": "arxiv-22877",
+    "title": "Attentive Crowd Flow Machines"
+  },
+  {
+    "query": "estimator breakdown point halfspace symmetric distributions",
+    "relevant_id": "arxiv-47578",
+    "title": "When does the Tukey median work?"
+  },
+  {
+    "query": "using social media data for disaster relief efforts",
+    "relevant_id": "arxiv-53713",
+    "title": "Analysis of Social Media Data using Multimodal Deep Learning for Disaster Response"
+  },
+  {
+    "query": "efficient algorithms for updating pseudoinverse of partitioned matrices",
+    "relevant_id": "arxiv-55073",
+    "title": "Efficient and Stable Algorithms to Extend Greville's Method to Partitioned Matrices Based on Inverse Cholesky Factorization"
+  },
+  {
+    "query": "object classification using wideband sonar echoes and neural networks",
+    "relevant_id": "arxiv-42027",
+    "title": "Classification of spherical objects based on the form function of acoustic echoes"
+  },
+  {
+    "query": "managing complex systems using software engineering principles",
+    "relevant_id": "arxiv-35866",
+    "title": "Software Engineering Practices for Machine Learning"
+  },
+  {
+    "query": "neural architecture search constrained by computation resources",
+    "relevant_id": "arxiv-42056",
+    "title": "NASIB: Neural Architecture Search withIn Budget"
+  },
+  {
+    "query": "unsegmented shapes autoencoder network one shot learning",
+    "relevant_id": "arxiv-30740",
+    "title": "BAE-NET: Branched Autoencoder for Shape Co-Segmentation"
+  },
+  {
+    "query": "time series classification algorithm scalable and accurate",
+    "relevant_id": "arxiv-11955",
+    "title": "Fast and Accurate Time Series Classification with WEASEL"
+  },
+  {
+    "query": "associative learning in neural networks with multiple modalities",
+    "relevant_id": "arxiv-34053",
+    "title": "Cross-modal Variational Auto-encoder with Distributed Latent Spaces and Associators"
+  },
+  {
+    "query": "simultaneous sparse and dense signal reconstruction methods",
+    "relevant_id": "arxiv-57915",
+    "title": "Towards improving discriminative reconstruction via simultaneous dense and sparse coding"
+  },
+  {
+    "query": "causal models for gaussian distributions with interference effects",
+    "relevant_id": "arxiv-25549",
+    "title": "Unifying Gaussian LWF and AMP Chain Graphs to Model Interference"
+  },
+  {
+    "query": "optimizing functions on stiefel manifolds with nonsmooth objectives",
+    "relevant_id": "arxiv-43750",
+    "title": "Weakly Convex Optimization over Stiefel Manifold Using Riemannian Subgradient-Type Methods"
+  },
+  {
+    "query": "entity summarization with weak supervision and graph structure consideratio 12d k",
+    "relevant_id": "arxiv-54184",
+    "title": "Neural Entity Summarization with Joint Encoding and Weak Supervision"
+  },
+  {
+    "query": "reducing rnn model complexity with tensor decomposition",
+    "relevant_id": "arxiv-13489",
+    "title": "Compressing Recurrent Neural Network with Tensor Train"
+  },
+  {
+    "query": "video understanding multiple simultaneous actions machine learning",
+    "relevant_id": "arxiv-43036",
+    "title": "Multi-Moments in Time: Learning and Interpreting Models for Multi-Action Video Understanding"
+  },
+  {
+    "query": "linear bandit problem with safety constraints",
+    "relevant_id": "arxiv-43310",
+    "title": "Safe Linear Thompson Sampling with Side Information"
+  },
+  {
+    "query": "dynamic model selection for uneven data distributions",
+    "relevant_id": "arxiv-52264",
+    "title": "Multi-label learning for dynamic model type recommendation"
+  },
+  {
+    "query": "extracting reliable dimensions in multivariate data with high correlation",
+    "relevant_id": "arxiv-17322",
+    "title": "Correlated Components Analysis - Extracting Reliable Dimensions in Multivariate Data"
+  },
+  {
+    "query": "quantum speedup in machine learning classification algorithms",
+    "relevant_id": "arxiv-28676",
+    "title": "Quantum Speedup in Adaptive Boosting of Binary Classification"
+  },
+  {
+    "query": "federated learning security vulnerabilities in machine learning models",
+    "relevant_id": "arxiv-19725",
+    "title": "Gradient-Leaks: Understanding and Controlling Deanonymization in Federated Learning"
+  },
+  {
+    "query": "iot agent design for dynamic physical environments",
+    "relevant_id": "arxiv-17598",
+    "title": "Machine Learning-based Variability Handling in IoT Agents"
+  },
+  {
+    "query": "efficient biclustering algorithms for numerical datasets with constant valu 4d k",
+    "relevant_id": "arxiv-51000",
+    "title": "New advances in enumerative biclustering algorithms with online partitioning"
+  },
+  {
+    "query": "compressing convolutional neural networks with reduced filter weights",
+    "relevant_id": "arxiv-35041",
+    "title": "BasisConv: A method for compressed representation and learning in CNNs"
+  },
+  {
+    "query": "convergence properties of stochastic gradient descent algorithms for convex 6d k",
+    "relevant_id": "arxiv-24637",
+    "title": "Optimality of the final model found via Stochastic Gradient Descent"
+  }
+]

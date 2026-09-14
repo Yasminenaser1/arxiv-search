@@ -1,0 +1,222 @@
+[
+  {
+    "query": "a neural network for semi-supervised learning on manifolds",
+    "relevant_id": "arxiv-38577",
+    "title": "A Neural Network for Semi-Supervised Learning on Manifolds"
+  },
+  {
+    "query": "a direct method for estimating a causal ordering in a linear non-gaussian acyclic model",
+    "relevant_id": "arxiv-4944",
+    "title": "A direct method for estimating a causal ordering in a linear non-Gaussian acyclic model"
+  },
+  {
+    "query": "non-asymptotic analysis of ell_1 -norm support vector machines",
+    "relevant_id": "arxiv-7342",
+    "title": "Non-asymptotic Analysis of $\\ell_1$-norm Support Vector Machines"
+  },
+  {
+    "query": "machine learning enabled spectrum sharing in dense lte-u wi-fi coexistence scenarios",
+    "relevant_id": "arxiv-52096",
+    "title": "Machine Learning enabled Spectrum Sharing in Dense LTE-U/Wi-Fi Coexistence Scenarios"
+  },
+  {
+    "query": "time for a change",
+    "relevant_id": "arxiv-9681",
+    "title": "Time for a change: a tutorial for comparing multiple classifiers through Bayesian analysis"
+  },
+  {
+    "query": "physical-layer authentication using channel state information and machine learning",
+    "relevant_id": "arxiv-56557",
+    "title": "Physical-Layer Authentication Using Channel State Information and Machine Learning"
+  },
+  {
+    "query": "supervised logeuclidean metric learning for symmetric positive definite matrices",
+    "relevant_id": "arxiv-5913",
+    "title": "Supervised LogEuclidean Metric Learning for Symmetric Positive Definite Matrices"
+  },
+  {
+    "query": "cbir using features derived by deep learning",
+    "relevant_id": "arxiv-49415",
+    "title": "CBIR using features derived by Deep Learning"
+  },
+  {
+    "query": "ecoc-based training of neural networks for face recognition",
+    "relevant_id": "arxiv-3830",
+    "title": "ECOC-Based Training of Neural Networks for Face Recognition"
+  },
+  {
+    "query": "distributed inexact damped newton method",
+    "relevant_id": "arxiv-8804",
+    "title": "Distributed Inexact Damped Newton Method: Data Partitioning and Load-Balancing"
+  },
+  {
+    "query": "on the complexity of approximating multimarginal optimal transport",
+    "relevant_id": "arxiv-40784",
+    "title": "On the Complexity of Approximating Multimarginal Optimal Transport"
+  },
+  {
+    "query": "using a machine learning approach to implement and evaluate product line features",
+    "relevant_id": "arxiv-7113",
+    "title": "Using a Machine Learning Approach to Implement and Evaluate Product Line Features"
+  },
+  {
+    "query": "a multi-stage algorithm for acoustic physical model parameters estimation",
+    "relevant_id": "arxiv-23331",
+    "title": "A Multi-Stage Algorithm for Acoustic Physical Model Parameters Estimation"
+  },
+  {
+    "query": "geometry aware mappings for high dimensional sparse factors",
+    "relevant_id": "arxiv-9287",
+    "title": "Geometry Aware Mappings for High Dimensional Sparse Factors"
+  },
+  {
+    "query": "software-level accuracy using stochastic computing with charge-trap-flash based weight matrix",
+    "relevant_id": "arxiv-53612",
+    "title": "Software-Level Accuracy Using Stochastic Computing With Charge-Trap-Flash Based Weight Matrix"
+  },
+  {
+    "query": "active ordinal querying for tuplewise similarity learning",
+    "relevant_id": "arxiv-41365",
+    "title": "Active Ordinal Querying for Tuplewise Similarity Learning"
+  },
+  {
+    "query": "detection of planted solutions for flat satisfiability problems",
+    "relevant_id": "arxiv-5987",
+    "title": "Detection of Planted Solutions for Flat Satisfiability Problems"
+  },
+  {
+    "query": "coordinates-based resource allocation through supervised machine learning",
+    "relevant_id": "arxiv-54997",
+    "title": "Coordinates-based Resource Allocation Through Supervised Machine Learning"
+  },
+  {
+    "query": "qualitative assessment of recurrent human motion",
+    "relevant_id": "arxiv-12499",
+    "title": "Qualitative Assessment of Recurrent Human Motion"
+  },
+  {
+    "query": "deep learning for audio transcription on low-resource datasets",
+    "relevant_id": "arxiv-21632",
+    "title": "Deep Learning for Audio Transcription on Low-Resource Datasets"
+  },
+  {
+    "query": "online learning of both state and dynamics using ensemble kalman filters",
+    "relevant_id": "arxiv-56585",
+    "title": "Online learning of both state and dynamics using ensemble Kalman filters"
+  },
+  {
+    "query": "bridging belief function theory to modern machine learning",
+    "relevant_id": "arxiv-6297",
+    "title": "Bridging belief function theory to modern machine learning"
+  },
+  {
+    "query": "exploring filterbank learning for keyword spotting",
+    "relevant_id": "arxiv-56047",
+    "title": "Exploring Filterbank Learning for Keyword Spotting"
+  },
+  {
+    "query": "a framework for neural network pruning using gibbs distributions",
+    "relevant_id": "arxiv-56848",
+    "title": "A Framework for Neural Network Pruning Using Gibbs Distributions"
+  },
+  {
+    "query": "predicting the long-term outcomes of biologics in psoriasis patients using machine learning",
+    "relevant_id": "arxiv-38722",
+    "title": "Predicting the Long-Term Outcomes of Biologics in Psoriasis Patients Using Machine Learning"
+  },
+  {
+    "query": "10 000 times accelerated robust subset selection arss",
+    "relevant_id": "arxiv-5083",
+    "title": "10,000+ Times Accelerated Robust Subset Selection (ARSS)"
+  },
+  {
+    "query": "modular vehicle control for transferring semantic information between weather conditions using gans",
+    "relevant_id": "arxiv-21406",
+    "title": "Modular Vehicle Control for Transferring Semantic Information Between Weather Conditions Using GANs"
+  },
+  {
+    "query": "robust optimization using machine learning for uncertainty sets",
+    "relevant_id": "arxiv-4798",
+    "title": "Robust Optimization using Machine Learning for Uncertainty Sets"
+  },
+  {
+    "query": "low-dimensional hyperbolic knowledge graph embeddings",
+    "relevant_id": "arxiv-54230",
+    "title": "Low-Dimensional Hyperbolic Knowledge Graph Embeddings"
+  },
+  {
+    "query": "phone-aware neural language identification",
+    "relevant_id": "arxiv-13274",
+    "title": "Phone-aware Neural Language Identification"
+  },
+  {
+    "query": "how do mixture density rnns predict the future",
+    "relevant_id": "arxiv-28074",
+    "title": "How do Mixture Density RNNs Predict the Future?"
+  },
+  {
+    "query": "benchmarking machine learning models on multi-centre eicu critical care dataset",
+    "relevant_id": "arxiv-40888",
+    "title": "Benchmarking machine learning models on multi-centre eICU critical care dataset"
+  },
+  {
+    "query": "machine learning in appearance-based robot self-localization",
+    "relevant_id": "arxiv-14302",
+    "title": "Machine Learning in Appearance-based Robot Self-localization"
+  },
+  {
+    "query": "using generative adversarial nets on atari games for feature extraction in deep reinforcement learning",
+    "relevant_id": "arxiv-52530",
+    "title": "Using Generative Adversarial Nets on Atari Games for Feature Extraction in Deep Reinforcement Learning"
+  },
+  {
+    "query": "a multichannel convolutional neural network for cross-language dialog state tracking",
+    "relevant_id": "arxiv-11919",
+    "title": "A Multichannel Convolutional Neural Network For Cross-language Dialog State Tracking"
+  },
+  {
+    "query": "a grounded interaction protocol for explainable artificial intelligence",
+    "relevant_id": "arxiv-30005",
+    "title": "A Grounded Interaction Protocol for Explainable Artificial Intelligence"
+  },
+  {
+    "query": "a comprehensive survey on outlying aspect mining methods",
+    "relevant_id": "arxiv-54519",
+    "title": "A Comprehensive Survey on Outlying Aspect Mining Methods"
+  },
+  {
+    "query": "multifunctionality in embodied agents",
+    "relevant_id": "arxiv-17606",
+    "title": "Multifunctionality in embodied agents: Three levels of neural reuse"
+  },
+  {
+    "query": "principled option learning in markov decision processes",
+    "relevant_id": "arxiv-10498",
+    "title": "Principled Option Learning in Markov Decision Processes"
+  },
+  {
+    "query": "hidden markov models as recurrent neural networks",
+    "relevant_id": "arxiv-56455",
+    "title": "Hidden Markov models as recurrent neural networks: an application to Alzheimer's disease"
+  },
+  {
+    "query": "graphical continuous lyapunov models",
+    "relevant_id": "arxiv-55514",
+    "title": "Graphical continuous Lyapunov models"
+  },
+  {
+    "query": "local distance metric learning for nearest neighbor algorithm",
+    "relevant_id": "arxiv-18289",
+    "title": "Local Distance Metric Learning for Nearest Neighbor Algorithm"
+  },
+  {
+    "query": "an external knowledge enhanced multi-label charge prediction approach with label number learning",
+    "relevant_id": "arxiv-36416",
+    "title": "An External Knowledge Enhanced Multi-label Charge Prediction Approach with Label Number Learning"
+  },
+  {
+    "query": "information-theoretical label embeddings for large-scale image classification",
+    "relevant_id": "arxiv-10030",
+    "title": "Information-theoretical label embeddings for large-scale image classification"
+  }
+]
