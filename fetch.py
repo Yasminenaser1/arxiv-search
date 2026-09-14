@@ -2,7 +2,7 @@ import json, random
 from datasets import load_dataset
 
 OUT = "data/abstracts.jsonl"
-TARGET = 10000
+TARGET = 50000
 SEED = 42
 
 ds = load_dataset("CShorten/ML-ArXiv-Papers", split="train")
