@@ -3,3 +3,5 @@ __pycache__/
 data/embeddings.npy
 data/bm25.pkl
 data/abstracts.jsonl
+
+# deploy_data IS committed — small enough, keeps deploys reproducible

@@ -7,17 +7,20 @@ from fastapi import FastAPI, Query
 from sentence_transformers import SentenceTransformer, CrossEncoder
 import numpy as np
 
+import os
+DATA_DIR = os.environ.get("DATA_DIR", "data")
+RERANK_AVAILABLE = os.environ.get("RERANK", "1") == "1"
 RRF_K, POOL, RERANK_DEPTH = 60, 100, 50
 S = {}
 
 @asynccontextmanager
 async def lifespan(app):
     t0 = time.time()
-    S["docs"] = [json.loads(l) for l in open("data/abstracts.jsonl")]
-    S["vecs"] = np.load("data/embeddings.npy")
-    S["bm25"] = pickle.load(open("data/bm25.pkl", "rb"))
+    S["docs"] = [json.loads(l) for l in open(f"{DATA_DIR}/abstracts.jsonl")]
+    S["vecs"] = np.load(f"{DATA_DIR}/embeddings.npy")
+    S["bm25"] = pickle.load(open(f"{DATA_DIR}/bm25.pkl", "rb"))
     S["bi"] = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2", device="cpu")
-    S["cross"] = CrossEncoder("cross-encoder/ms-marco-MiniLM-L-6-v2", max_length=512, device="cpu")
+    S["cross"] = CrossEncoder("cross-encoder/ms-marco-MiniLM-L-6-v2", max_length=512, device="cpu") if RERANK_AVAILABLE else None
     print(f"loaded {len(S['docs'])} docs in {time.time()-t0:.1f}s")
     yield
     S.clear()
@@ -71,6 +74,7 @@ def _cached_search(q, k, rerank_on):
 
 @app.get("/search")
 def search(q: str = Query(..., min_length=2), k: int = 10, rerank_on: bool = True):
+    rerank_on = rerank_on and RERANK_AVAILABLE
     key = q.strip().lower()
     t0 = time.perf_counter()
     before = _cached_search.cache_info().hits
@@ -101,7 +105,7 @@ def stats():
 
 @app.get("/health")
 def health():
-    return {"status": "ok", "docs": len(S["docs"])}
+    return {"status": "ok", "docs": len(S["docs"]), "rerank_available": RERANK_AVAILABLE}
 
 
 @app.get("/metrics")

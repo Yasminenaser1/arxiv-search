@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: arxiv-search
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn api:app --host 0.0.0.0 --port $PORT --limit-concurrency 32
+    envVars:
+      - key: DATA_DIR
+        value: deploy_data
+      - key: RERANK
+        value: "0"
+      - key: PYTHON_VERSION
+        value: "3.11"
