@@ -28,6 +28,8 @@ tokenize = lambda t: re.findall(r"[a-z0-9]+", t.lower())
 from functools import lru_cache
 
 CACHE_STATS = {"hits": 0, "misses": 0}
+from collections import deque
+HISTORY = deque(maxlen=200)
 
 def retrieve(query):
     qv = S["bi"].encode([query], normalize_embeddings=True)[0]
@@ -78,6 +80,8 @@ def search(q: str = Query(..., min_length=2), k: int = 10, rerank_on: bool = Tru
     out["cached"] = hit
     total = round((time.perf_counter()-t0)*1000, 1)
     out["timing_ms"] = {"total": total} if hit else {**out["timing_ms"], "total": total}
+    HISTORY.append({"q": key, "total": total, "cached": hit,
+                    "rerank": rerank_on, "at": time.time()})
     return out
 
 @app.post("/cache/clear")
@@ -98,3 +102,26 @@ def stats():
 @app.get("/health")
 def health():
     return {"status": "ok", "docs": len(S["docs"])}
+
+
+@app.get("/metrics")
+def metrics():
+    import numpy as _np
+    rows = list(HISTORY)
+    cold = [r["total"] for r in rows if not r["cached"]]
+    warm = [r["total"] for r in rows if r["cached"]]
+    def pct(v, p):
+        return round(float(_np.percentile(v, p)), 1) if v else None
+    total = CACHE_STATS["hits"] + CACHE_STATS["misses"]
+    return {
+        "requests": total,
+        "cache": {**CACHE_STATS,
+                  "hit_rate": round(CACHE_STATS["hits"]/total, 3) if total else 0.0,
+                  "size": _cached_search.cache_info().currsize},
+        "cold": {"n": len(cold), "p50": pct(cold, 50), "p95": pct(cold, 95)},
+        "warm": {"n": len(warm), "p50": pct(warm, 50), "p95": pct(warm, 95)},
+        "recent": rows[-25:],
+    }
+
+from fastapi.staticfiles import StaticFiles
+app.mount("/", StaticFiles(directory="static", html=True), name="static")

@@ -1,0 +1,50 @@
+:root {
+  color-scheme: light dark;
+  --bg: light-dark(#f7f8fb, #0e1117);
+  --panel: light-dark(#ffffff, #161b26);
+  --ink: light-dark(#111827, #e6e9ef);
+  --muted: light-dark(#6b7280, #8b93a3);
+  --line: light-dark(#e5e7eb, #242b38);
+  --accent: light-dark(#2f5fe0, #6f9bff);
+  --chip: light-dark(#eef2ff, #1e2637);
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif; line-height: 1.55;
+}
+.wrap { max-width: 860px; margin: 0 auto; padding: 0 20px; }
+header { border-bottom: 1px solid var(--line); padding: 36px 0 26px; margin-bottom: 26px; }
+h1 { font-family: Outfit, sans-serif; font-weight: 700; font-size: 1.85rem; margin: 0 0 6px; letter-spacing: -0.02em; }
+.sub { color: var(--muted); margin: 0; font-size: 0.95rem; }
+.searchbar { display: flex; gap: 10px; }
+#q {
+  flex: 1; padding: 13px 16px; font: inherit; border-radius: 12px;
+  border: 1px solid var(--line); background: var(--panel); color: var(--ink);
+}
+#q:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+button {
+  padding: 13px 22px; font: inherit; font-weight: 600; border: 0; cursor: pointer;
+  border-radius: 12px; background: var(--accent); color: #fff;
+}
+.controls { display: flex; align-items: center; justify-content: space-between; margin: 14px 0 4px; flex-wrap: wrap; gap: 10px; }
+.toggle { display: flex; align-items: center; gap: 8px; font-size: 0.9rem; cursor: pointer; }
+.toggle small { color: var(--muted); }
+.link { color: var(--accent); text-decoration: none; font-size: 0.9rem; font-weight: 600; }
+.timing { display: flex; gap: 8px; flex-wrap: wrap; margin: 16px 0 4px; }
+.hidden { display: none; }
+.chip {
+  background: var(--chip); color: var(--muted); font-size: 0.78rem;
+  padding: 5px 11px; border-radius: 999px; font-variant-numeric: tabular-nums;
+}
+.chip.hit { background: light-dark(#dcfce7, #123524); color: light-dark(#166534, #4ade80); }
+.card {
+  display: flex; gap: 16px; background: var(--panel); border: 1px solid var(--line);
+  border-radius: 14px; padding: 18px; margin-top: 14px;
+}
+.rank { font-family: Outfit, sans-serif; font-weight: 700; color: var(--muted); min-width: 28px; font-size: 1.05rem; }
+.card h3 { font-family: Outfit, sans-serif; font-size: 1.02rem; margin: 0 0 6px; line-height: 1.35; }
+.card p { margin: 0 0 8px; font-size: 0.9rem; color: light-dark(#374151, #b4bccb); }
+.meta { font-size: 0.78rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.muted { color: var(--muted); }
+main { padding-bottom: 60px; }

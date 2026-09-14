@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>arXiv semantic search</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>arXiv semantic search</h1>
+    <p class="sub">Hybrid retrieval (BM25 + dense) over 10,000 ML paper abstracts, with optional cross-encoder reranking.</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="searchbar">
+    <input id="q" type="text" placeholder="describe the paper you're looking for…"
+           value="adversarial examples fooling image classifiers" autocomplete="off">
+    <button id="go">Search</button>
+  </div>
+
+  <div class="controls">
+    <label class="toggle">
+      <input type="checkbox" id="rerank" checked>
+      <span>Cross-encoder rerank</span>
+      <small>higher quality, ~35× slower</small>
+    </label>
+    <a class="link" href="/dashboard.html">Metrics dashboard →</a>
+  </div>
+
+  <div id="timing" class="timing hidden"></div>
+  <div id="results"></div>
+</main>
+
+<script>
+const $ = s => document.querySelector(s);
+
+async function search() {
+  const q = $("#q").value.trim();
+  if (q.length < 2) return;
+  const rerank = $("#rerank").checked;
+  $("#results").innerHTML = '<p class="muted">searching…</p>';
+  $("#timing").classList.add("hidden");
+
+  const t0 = performance.now();
+  const r = await fetch(`/search?q=${encodeURIComponent(q)}&k=10&rerank_on=${rerank}`);
+  const d = await r.json();
+  const wall = Math.round(performance.now() - t0);
+
+  const t = d.timing_ms;
+  $("#timing").classList.remove("hidden");
+  $("#timing").innerHTML = `
+    <span class="${d.cached ? 'chip hit' : 'chip'}">${d.cached ? 'cache hit' : 'cache miss'}</span>
+    ${t.retrieve !== undefined ? `<span class="chip">retrieve ${t.retrieve}ms</span>` : ''}
+    ${t.rerank !== undefined ? `<span class="chip">rerank ${t.rerank}ms</span>` : ''}
+    <span class="chip">server ${t.total}ms</span>
+    <span class="chip">round trip ${wall}ms</span>`;
+
+  $("#results").innerHTML = d.results.map((x, i) => `
+    <article class="card">
+      <div class="rank">${i + 1}</div>
+      <div>
+        <h3>${esc(x.title)}</h3>
+        <p>${esc(x.abstract)}…</p>
+        <div class="meta">${x.id}${x.score !== null ? ` · rerank score ${x.score.toFixed(2)}` : ''}</div>
+      </div>
+    </article>`).join("");
+}
+
+const esc = s => s.replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+
+$("#go").onclick = search;
+$("#q").addEventListener("keydown", e => { if (e.key === "Enter") search(); });
+search();
+</script>
+</body>
+</html>

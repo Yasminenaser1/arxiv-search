@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>arXiv search — metrics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<style>
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 14px; margin: 22px 0; }
+  .stat { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; }
+  .stat .k { font-size: 0.76rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+  .stat .v { font-family: Outfit, sans-serif; font-weight: 700; font-size: 1.6rem; margin-top: 4px; font-variant-numeric: tabular-nums; }
+  .stat .n { font-size: 0.76rem; color: var(--muted); }
+  h2 { font-family: Outfit, sans-serif; font-size: 1.05rem; margin: 30px 0 10px; }
+  .bars { display: flex; align-items: flex-end; gap: 3px; height: 130px; background: var(--panel);
+          border: 1px solid var(--line); border-radius: 14px; padding: 14px; }
+  .bar { flex: 1; background: var(--accent); border-radius: 3px 3px 0 0; min-height: 2px; }
+  .bar.hit { background: light-dark(#34d399, #4ade80); }
+  table { width: 100%; border-collapse: collapse; font-size: 0.86rem; margin-top: 8px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--line); }
+  th { color: var(--muted); font-weight: 600; font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.04em; }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  .legend { font-size: 0.78rem; color: var(--muted); margin-top: 8px; }
+  .dot { display: inline-block; width: 9px; height: 9px; border-radius: 3px; vertical-align: middle; margin-right: 4px; }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>Metrics</h1>
+    <p class="sub">Live server stats — last 200 requests. <a class="link" href="/">← back to search</a></p>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="grid" id="stats"></div>
+
+  <h2>Recent request latency</h2>
+  <div class="bars" id="bars"></div>
+  <div class="legend">
+    <span class="dot" style="background:var(--accent)"></span>cache miss
+    <span class="dot" style="background:#4ade80; margin-left:14px"></span>cache hit
+  </div>
+
+  <h2>Recent queries</h2>
+  <table>
+    <thead><tr><th>Query</th><th>Rerank</th><th>Cache</th><th class="num">Total</th></tr></thead>
+    <tbody id="rows"></tbody>
+  </table>
+</main>
+
+<script>
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+const fmt = v => v === null || v === undefined ? "–" : v + "ms";
+
+async function tick() {
+  const d = await (await fetch("/metrics")).json();
+
+  $("#stats").innerHTML = `
+    <div class="stat"><div class="k">Requests</div><div class="v">${d.requests}</div></div>
+    <div class="stat"><div class="k">Cache hit rate</div><div class="v">${(d.cache.hit_rate*100).toFixed(0)}%</div>
+      <div class="n">${d.cache.hits} hits / ${d.cache.misses} misses</div></div>
+    <div class="stat"><div class="k">Cold p50</div><div class="v">${fmt(d.cold.p50)}</div>
+      <div class="n">p95 ${fmt(d.cold.p95)} · n=${d.cold.n}</div></div>
+    <div class="stat"><div class="k">Warm p50</div><div class="v">${fmt(d.warm.p50)}</div>
+      <div class="n">p95 ${fmt(d.warm.p95)} · n=${d.warm.n}</div></div>
+    <div class="stat"><div class="k">Cached entries</div><div class="v">${d.cache.size}</div></div>`;
+
+  const recent = d.recent;
+  const max = Math.max(1, ...recent.map(r => r.total));
+  $("#bars").innerHTML = recent.map(r =>
+    `<div class="bar ${r.cached ? 'hit' : ''}" style="height:${Math.max(2,(r.total/max)*100)}%"
+       title="${esc(r.q)} — ${r.total}ms"></div>`).join("");
+
+  $("#rows").innerHTML = recent.slice().reverse().map(r => `
+    <tr><td>${esc(r.q.slice(0,58))}</td>
+        <td>${r.rerank ? "on" : "off"}</td>
+        <td>${r.cached ? "hit" : "miss"}</td>
+        <td class="num">${r.total}ms</td></tr>`).join("");
+}
+tick();
+setInterval(tick, 2000);
+</script>
+</body>
+</html>
