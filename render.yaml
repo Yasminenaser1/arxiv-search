@@ -11,4 +11,4 @@ services:
       - key: RERANK
         value: "0"
       - key: PYTHON_VERSION
-        value: "3.11"
+        value: "3.13"
