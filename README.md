@@ -54,10 +54,27 @@ serialized. This is why the deployed version has reranking disabled.
 **4. Offline benchmarks don't transfer to production.** Retrieval measured
 0.5ms offline and 41ms in the API — the eval batch-encoded all queries at
 once, while the server encodes one per request. On Render's free CPU the
-same code takes ~1300ms cold. Same implementation, three very different
+same code takes 727ms cold p50 — measured from the deployed dashboard, not
+estimated. Same implementation, three very different
 numbers depending on how it's called and where it runs.
 
 ---
+
+**5. The system had no concept of "no results."** Searching for something
+entirely outside the corpus — "how to make sourdough bread" — returned ten
+confidently-ranked papers. Cosine similarity always has a nearest neighbour and
+RRF always produces a ranking, so nothing in the pipeline could say "nothing
+here." The cross-encoder scores turned out to separate: relevant queries score
+roughly +2 to +4, clearly irrelevant ones cluster near -11. Thresholding at -5
+gives an honest empty state. The signal was already being computed on every
+reranked query; nothing was reading it.
+
+Partial relevance has no clean cutoff — a speech-recognition query against this
+ML corpus scored -6.4, which is neither a match nor nonsense. The floor catches
+the obvious cases only.
+
+Note these are unbounded logits, not probabilities, so they can't be shown to
+users as confidence scores without calibration.
 
 ## Vocabulary dependence — the biggest caveat
 
@@ -109,7 +126,9 @@ probe than true human queries; and 20 queries is a small sample.
 ## Production differs from the best config
 
 The deployed service runs **hybrid retrieval with reranking disabled, over
-3,000 documents** — not the top-scoring configuration. Render's free tier
+3,000 documents** — while all measurements above were taken locally on 50,000
+documents with reranking available. The live demo is therefore a deliberately
+weaker configuration than the one benchmarked — not the top-scoring configuration. Render's free tier
 gives 512MB RAM and one weak CPU, and the reranked path would push a single
 user past a second per query. Measuring the best config and then shipping a
 cheaper one is the actual tradeoff, so it's documented rather than hidden.
