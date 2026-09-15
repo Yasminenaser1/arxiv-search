@@ -43,11 +43,11 @@
 * { box-sizing: border-box; }
 body {
   margin: 0; background: var(--bg); color: var(--ink);
-  font-family: "Plus Jakarta Sans", system-ui, sans-serif; line-height: 1.55;
+  font-family: var(--mono); line-height: 1.55;
 }
 .wrap { max-width: 860px; margin: 0 auto; padding: 0 20px; }
 header { border-bottom: 1px solid var(--line); padding: 36px 0 26px; margin-bottom: 26px; }
-h1 { font-family: Outfit, sans-serif; font-weight: 700; font-size: 1.85rem; margin: 0 0 6px; letter-spacing: -0.02em; }
+h1 { font-family: var(--mono); font-weight: 700; font-size: 1.85rem; margin: 0 0 6px; letter-spacing: -0.02em; }
 .sub { color: var(--muted); margin: 0; font-size: 0.95rem; }
 .searchbar { display: flex; gap: 10px; }
 #q {
@@ -63,13 +63,24 @@ button {
 .toggle { display: flex; align-items: center; gap: 8px; font-size: 0.9rem; cursor: pointer; }
 .toggle small { color: var(--muted); }
 .link { color: var(--accent); text-decoration: none; font-size: 0.9rem; font-weight: 600; }
+
+/* Theme switcher: scoped so it beats the global `button` pill style (0,1,1 > 0,0,1). */
+.themer { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.themer button {
+  padding: 5px 10px; font: inherit; font-size: 0.78rem; font-weight: 400;
+  background: none; color: var(--muted); border: 0; border-left: 1px solid var(--line);
+  border-radius: 0; cursor: pointer;
+}
+.themer button:first-child { border-left: 0; }
+.themer button:hover { color: var(--ink); }
+.themer button[aria-pressed="true"] { background: var(--accent-soft); color: var(--accent); }
 .timing { display: flex; gap: 8px; flex-wrap: wrap; margin: 16px 0 4px; }
 .hidden { display: none; }
 .chip {
   background: var(--chip); color: var(--muted); font-size: 0.78rem;
   padding: 5px 11px; border-radius: 999px; font-variant-numeric: tabular-nums;
 }
-.chip.hit { background: light-dark(#dcfce7, #123524); color: light-dark(#166534, #4ade80); }
+.chip.hit { background: var(--hit-bg); color: var(--hit); }
 .card {
   display: flex; gap: 18px; padding: 20px 2px;
   border-top: 1px solid var(--line); margin: 0;

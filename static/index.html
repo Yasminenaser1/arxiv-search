@@ -30,7 +30,14 @@
       <span>Cross-encoder rerank</span>
       <small>higher quality, ~35× slower</small>
     </label>
-    <a class="link" href="/dashboard.html">Metrics dashboard →</a>
+    <span style="display:flex;align-items:center;gap:14px">
+      <span class="themer" role="group" aria-label="Color theme">
+        <button data-theme-set="light">light</button>
+        <button data-theme-set="dark">dark</button>
+        <button data-theme-set="system">system</button>
+      </span>
+      <a class="link" href="/dashboard.html">metrics</a>
+    </span>
   </div>
 
   <div id="timing" class="timing hidden"></div>
@@ -82,8 +89,28 @@ function mark(text, query) {
   if (!uniq.length) return esc(text);
   const re = new RegExp("\\b(" + uniq.map(t =>
     t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|") + ")\\w{0,3}\\b", "gi");
-  return esc(text).replace(re, m => "<mark>" + m + "</mark>");
+  // Match the raw text and escape each segment, so a term can never land inside
+  // an entity that esc() produced (e.g. query "amp" corrupting "&amp;").
+  let out = "", last = 0, m;
+  while ((m = re.exec(text)) !== null) {
+    out += esc(text.slice(last, m.index)) + "<mark>" + esc(m[0]) + "</mark>";
+    last = m.index + m[0].length;
+  }
+  return out + esc(text.slice(last));
 }
+
+function applyTheme(mode) {
+  if (mode === "system") document.documentElement.removeAttribute("data-theme");
+  else document.documentElement.setAttribute("data-theme", mode);
+  document.querySelectorAll("[data-theme-set]").forEach(b =>
+    b.setAttribute("aria-pressed", b.dataset.themeSet === mode));
+  try { localStorage.setItem("theme", mode); } catch (e) {}
+}
+document.querySelectorAll("[data-theme-set]").forEach(b =>
+  b.onclick = () => applyTheme(b.dataset.themeSet));
+let _saved = "system";
+try { _saved = localStorage.getItem("theme") || "system"; } catch (e) {}
+applyTheme(_saved);
 
 $("#go").onclick = search;
 $("#q").addEventListener("keydown", e => { if (e.key === "Enter") search(); });
