@@ -1,0 +1,40 @@
+# 1. Convergence of the Deep BSDE Method for Coupled FBSDEs
+
+# 2. Deep Features Analysis with Attention Networks
+
+# 3. Approximate Inference for Constructing Astronomical Catalogs from Images
+
+# 4. Improving Generalization via Scalable Neighborhood Component Analysis
+
+# 5. Parallelizing Over Artificial Neural Network Training Runs with Multigrid
+
+# 6. Learning Optimal Resource Allocations in Wireless Systems
+
+# 7. Smoothed Action Value Functions for Learning Gaussian Policies
+
+# 8. Introspective Classification with Convolutional Nets
+
+# 9. Asynchronous Distributed ADMM for Large-Scale Optimization- Part II: Linear Convergence Analysis and Numerical Performance
+
+# 10. Egoshots, an ego-vision life-logging dataset and semantic fidelity metric to evaluate diversity in image captioning models
+
+# 11. The streaming rollout of deep networks - towards fully model-parallel execution
+
+# 12. Global convergence of neuron birth-death dynamics
+
+# 13. Machine learning on images using a string-distance
+
+# 14. Federated Neuromorphic Learning of Spiking Neural Networks for Low-Power Edge Intelligence
+
+# 15. Learned Spectral Super-Resolution
+
+# 16. Designing generalisation evaluation function through human-machine dialogue
+
+# 17. DOSED: a deep learning approach to detect multiple sleep micro-events in EEG signal
+
+# 18. Adversarial-Playground: A Visualization Suite Showing How Adversarial Examples Fool Deep Learning
+
+# 19. Nonstationary Distance Metric Learning
+
+# 20. Adversarial Uncertainty Quantification in Physics-Informed Neural Networks
+

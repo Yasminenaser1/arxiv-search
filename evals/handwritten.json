@@ -1,0 +1,102 @@
+[
+  {
+    "query": "how do you know the training settles when a network solves equations with lots of variables",
+    "relevant_id": "arxiv-25191",
+    "title": "Convergence of the Deep BSDE Method for Coupled FBSDEs"
+  },
+  {
+    "query": "what part of the picture did the model look at when it decided what it was",
+    "relevant_id": "arxiv-28382",
+    "title": "Deep Features Analysis with Attention Networks"
+  },
+  {
+    "query": "automatically finding stars and galaxies in telescope pictures and listing what is there",
+    "relevant_id": "arxiv-18184",
+    "title": "Approximate Inference for Constructing Astronomical Catalogs from Images"
+  },
+  {
+    "query": "recognizing images by comparing them to similar ones instead of fixed categories",
+    "relevant_id": "arxiv-22492",
+    "title": "Improving Generalization via Scalable Neighborhood Component Analysis"
+  },
+  {
+    "query": "splitting a training run across machines so different stages happen at once",
+    "relevant_id": "arxiv-14643",
+    "title": "Parallelizing Over Artificial Neural Network Training Runs with Multigrid"
+  },
+  {
+    "query": "deciding how to share limited signal capacity between users on a network",
+    "relevant_id": "arxiv-21940",
+    "title": "Learning Optimal Resource Allocations in Wireless Systems"
+  },
+  {
+    "query": "estimating how good an action is when the choices vary continuously instead of a fixed list",
+    "relevant_id": "arxiv-18332",
+    "title": "Smoothed Action Value Functions for Learning Gaussian Policies"
+  },
+  {
+    "query": "a network that makes its own tricky training examples and learns from them",
+    "relevant_id": "arxiv-13125",
+    "title": "Introspective Classification with Convolutional Nets"
+  },
+  {
+    "query": "solving a huge math problem across many computers that dont wait for each other",
+    "relevant_id": "arxiv-7249",
+    "title": "Asynchronous Distributed ADMM for Large-Scale Optimization- Part II: Linear Convergence Analysis and Numerical Performance"
+  },
+  {
+    "query": "checking whether automatic photo descriptions cover everything in everyday pictures",
+    "relevant_id": "arxiv-51856",
+    "title": "Egoshots, an ego-vision life-logging dataset and semantic fidelity metric to evaluate diversity in image captioning models"
+  },
+  {
+    "query": "running every layer at the same time so a network can react to input as it arrives",
+    "relevant_id": "arxiv-20836",
+    "title": "The streaming rollout of deep networks - towards fully model-parallel execution"
+  },
+  {
+    "query": "why very wide networks reach the best answer instead of getting stuck",
+    "relevant_id": "arxiv-28773",
+    "title": "Global convergence of neuron birth-death dynamics"
+  },
+  {
+    "query": "describing a picture by how unlike it is to a set of reference pictures",
+    "relevant_id": "arxiv-3101",
+    "title": "Machine learning on images using a string-distance"
+  },
+  {
+    "query": "small battery powered devices training together without sharing their own data",
+    "relevant_id": "arxiv-42229",
+    "title": "Federated Neuromorphic Learning of Spiking Neural Networks for Low-Power Edge Intelligence"
+  },
+  {
+    "query": "recovering the full range of colors at each pixel from an ordinary photo",
+    "relevant_id": "arxiv-12776",
+    "title": "Learned Spectral Super-Resolution"
+  },
+  {
+    "query": "building a scoring rule by asking an expert questions about which results look right",
+    "relevant_id": "arxiv-1487",
+    "title": "Designing generalisation evaluation function through human-machine dialogue"
+  },
+  {
+    "query": "spotting short events in brain recordings taken while someone sleeps",
+    "relevant_id": "arxiv-26812",
+    "title": "DOSED: a deep learning approach to detect multiple sleep micro-events in EEG signal"
+  },
+  {
+    "query": "a tool for seeing how tiny changes to an image trick a model into getting it wrong",
+    "relevant_id": "arxiv-14599",
+    "title": "Adversarial-Playground: A Visualization Suite Showing How Adversarial Examples Fool Deep Learning"
+  },
+  {
+    "query": "learning what counts as similar when the relationship keeps changing over time",
+    "relevant_id": "arxiv-8757",
+    "title": "Nonstationary Distance Metric Learning"
+  },
+  {
+    "query": "knowing how confident a network is when it predicts how a physical system behaves",
+    "relevant_id": "arxiv-25499",
+    "title": "Adversarial Uncertainty Quantification in Physics-Informed Neural Networks"
+  }
+]

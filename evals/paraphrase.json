@@ -1,0 +1,72 @@
+[
+  {
+    "query": "how to make a complex mathematical equation solve itself quickly",
+    "relevant_id": "arxiv-25191",
+    "title": "Convergence of the Deep BSDE Method for Coupled FBSDEs"
+  },
+  {
+    "query": "creating lists of objects from big images taken by telescopes in space",
+    "relevant_id": "arxiv-18184",
+    "title": "Approximate Inference for Constructing Astronomical Catalogs from Images"
+  },
+  {
+    "query": "fair distribution of available resources in mobile phone networks",
+    "relevant_id": "arxiv-21940",
+    "title": "Learning Optimal Resource Allocations in Wireless Systems"
+  },
+  {
+    "query": "program that works separately with big data sets to find the best solution",
+    "relevant_id": "arxiv-7249",
+    "title": "Asynchronous Distributed ADMM for Large-Scale Optimization- Part II: Linear Convergence Analysis and Numerical Performance"
+  },
+  {
+    "query": "datasets of images with many different objects labeled",
+    "relevant_id": "arxiv-51856",
+    "title": "Egoshots, an ego-vision life-logging dataset and semantic fidelity metric to evaluate diversity in image captioning models"
+  },
+  {
+    "query": "computer systems that can react quickly to physical things happening",
+    "relevant_id": "arxiv-20836",
+    "title": "The streaming rollout of deep networks - towards fully model-parallel execution"
+  },
+  {
+    "query": "enhance images from single color pictures without knowing what s in them",
+    "relevant_id": "arxiv-12776",
+    "title": "Learned Spectral Super-Resolution"
+  },
+  {
+    "query": "finding small patterns in brain wave data using a deep learning technique",
+    "relevant_id": "arxiv-26812",
+    "title": "DOSED: a deep learning approach to detect multiple sleep micro-events in EEG signal"
+  },
+  {
+    "query": "figuring out how to measure distances in data that s always changing",
+    "relevant_id": "arxiv-8757",
+    "title": "Nonstationary Distance Metric Learning"
+  },
+  {
+    "query": "using data from social media to help after a natural disaster",
+    "relevant_id": "arxiv-53713",
+    "title": "Analysis of Social Media Data using Multimodal Deep Learning for Disaster Response"
+  },
+  {
+    "query": "fast methods for updating the inverse of split up big mathematical tables",
+    "relevant_id": "arxiv-55073",
+    "title": "Efficient and Stable Algorithms to Extend Greville's Method to Partitioned Matrices Based on Inverse Cholesky Factorization"
+  },
+  {
+    "query": "search for good computer brain designs that work within our budget",
+    "relevant_id": "arxiv-42056",
+    "title": "NASIB: Neural Architecture Search withIn Budget"
+  },
+  {
+    "query": "choosing the best model to use when the data is not spread evenly",
+    "relevant_id": "arxiv-52264",
+    "title": "Multi-label learning for dynamic model type recommendation"
+  },
+  {
+    "query": "compressing big neural networks with fewer weights in the filters",
+    "relevant_id": "arxiv-35041",
+    "title": "BasisConv: A method for compressed representation and learning in CNNs"
+  }
+]
