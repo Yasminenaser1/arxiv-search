@@ -1,5 +1,7 @@
 # arxiv-search
 
+[![tests](https://github.com/Yasminenaser1/arxiv-search/actions/workflows/tests.yml/badge.svg)](https://github.com/Yasminenaser1/arxiv-search/actions/workflows/tests.yml)
+
 Semantic search over 50,000 ML paper abstracts — built to measure retrieval
 quality and serving cost, not just to work.
 
@@ -66,22 +68,6 @@ confidently-ranked papers. Cosine similarity always has a nearest neighbour and
 RRF always produces a ranking, so nothing in the pipeline could say "nothing
 here." The cross-encoder scores turned out to separate: relevant queries score
 roughly +2 to +4, clearly irrelevant ones cluster near -11. Thresholding at -5
-gives an honest empty state. The signal was already being computed on every
-reranked query; nothing was reading it.
-
-Partial relevance has no clean cutoff — a speech-recognition query against this
-ML corpus scored -6.4, which is neither a match nor nonsense. The floor catches
-the obvious cases only.
-
-Note these are unbounded logits, not probabilities, so they can't be shown to
-users as confidence scores without calibration.
-
-**5. The system had no concept of "no results."** Searching for something
-entirely outside the corpus — "how to make sourdough bread" — returned ten
-confidently-ranked papers. Cosine similarity always has a nearest neighbour and
-RRF always produces a ranking, so nothing in the pipeline could say "nothing
-here." The cross-encoder scores turned out to separate: relevant queries score
-roughly +2 to +4, clearly irrelevant ones cluster near -11. Thresholding at -5
 gives an honest empty state, and the signal was already being computed on every
 reranked query — nothing was reading it.
 
@@ -140,7 +126,7 @@ probe than true human queries; and 20 queries is a small sample.
 The deployed service runs **hybrid retrieval with reranking disabled, over
 3,000 documents** — while all measurements above were taken locally on 50,000
 documents with reranking available. The live demo is therefore a deliberately
-weaker configuration than the one benchmarked — not the top-scoring configuration. Render's free tier
+weaker configuration than the one benchmarked. Render's free tier
 gives 512MB RAM and one weak CPU, and the reranked path would push a single
 user past a second per query. Measuring the best config and then shipping a
 cheaper one is the actual tradeoff, so it's documented rather than hidden.
