@@ -6,7 +6,7 @@
 <title>arXiv semantic search</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;450&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css">
 </head>
 <body>
@@ -65,14 +65,25 @@ async function search() {
     <article class="card">
       <div class="rank">${i + 1}</div>
       <div>
-        <h3>${esc(x.title)}</h3>
-        <p>${esc(x.abstract)}…</p>
+        <h3>${mark(x.title, q)}</h3>
+        <p>${mark(x.abstract, q)}…</p>
         <div class="meta">${x.id}${x.score !== null ? ` · rerank score ${x.score.toFixed(2)}` : ''}</div>
       </div>
     </article>`).join("");
 }
 
 const esc = s => s.replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+
+const STOP = new Set(["the","and","for","with","from","that","this","are","was","how","what",
+                      "you","your","its","not","can","use","using","into","over","than"]);
+function mark(text, query) {
+  const terms = query.toLowerCase().match(/[a-z0-9]{3,}/g) || [];
+  const uniq = [...new Set(terms)].filter(t => !STOP.has(t));
+  if (!uniq.length) return esc(text);
+  const re = new RegExp("\\b(" + uniq.map(t =>
+    t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|") + ")\\w{0,3}\\b", "gi");
+  return esc(text).replace(re, m => "<mark>" + m + "</mark>");
+}
 
 $("#go").onclick = search;
 $("#q").addEventListener("keydown", e => { if (e.key === "Enter") search(); });
