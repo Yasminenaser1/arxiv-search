@@ -1,15 +1,17 @@
-import json, pickle, re
+import json, os, pickle, re
 import numpy as np
 import pytest
+
+DATA = os.environ.get("DATA_DIR", "data")
 from sentence_transformers import SentenceTransformer
 
 @pytest.fixture(scope="module")
 def index():
-    docs = [json.loads(l) for l in open("data/abstracts.jsonl")]
+    docs = [json.loads(l) for l in open(f"{DATA}/abstracts.jsonl")]
     return {
         "docs": docs,
-        "vecs": np.load("data/embeddings.npy"),
-        "bm25": pickle.load(open("data/bm25.pkl", "rb")),
+        "vecs": np.load(f"{DATA}/embeddings.npy"),
+        "bm25": pickle.load(open(f"{DATA}/bm25.pkl", "rb")),
         "model": SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2", device="cpu"),
     }
 
@@ -35,6 +37,7 @@ def test_bm25_exact_term_wins(index):
     top = index["docs"][int(np.argmax(scores))]
     assert "federated" in (top["title"] + top["abstract"]).lower()
 
+@pytest.mark.skipif(DATA != "data", reason="eval gold docs are from the 50k local corpus")
 def test_rrf_beats_either_alone(index):
     """The core claim of the architecture — guard it."""
     cases = json.load(open("evals/hard.json"))[:20]

@@ -68,6 +68,10 @@ async function search() {
     <span class="chip">server ${t.total}ms</span>
     <span class="chip">round trip ${wall}ms</span>`;
 
+  if (!d.results.length) {
+    $("#results").innerHTML = `<p class="muted" style="padding:28px 2px">Nothing in the corpus matches this. Every candidate scored below the relevance floor.</p>`;
+    return;
+  }
   $("#results").innerHTML = d.results.map((x, i) => `
     <article class="card">
       <div class="rank">${i + 1}</div>

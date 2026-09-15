@@ -11,6 +11,7 @@ import os
 DATA_DIR = os.environ.get("DATA_DIR", "data")
 RERANK_AVAILABLE = os.environ.get("RERANK", "1") == "1"
 RRF_K, POOL, RERANK_DEPTH = 60, 100, 50
+RELEVANCE_FLOOR = -5.0  # cross-encoder scores: real matches +6..+8, nonsense ~-11
 S = {}
 
 @asynccontextmanager
@@ -54,7 +55,12 @@ def _search_uncached(q, k, rerank_on):
     cands = retrieve(q)
     t_retrieve = (time.perf_counter() - t0) * 1000
     t1 = time.perf_counter()
-    scored = rerank(q, cands[:RERANK_DEPTH])[:k] if rerank_on else [(None, i) for i in cands[:k]]
+    if rerank_on:
+        scored = rerank(q, cands[:RERANK_DEPTH])[:k]
+        if scored and scored[0][0] < RELEVANCE_FLOOR:
+            scored = []
+    else:
+        scored = [(None, i) for i in cands[:k]]
     t_rerank = (time.perf_counter() - t1) * 1000
     docs = S["docs"]
     return {
