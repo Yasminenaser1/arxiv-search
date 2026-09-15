@@ -13,7 +13,7 @@
 <header>
   <div class="wrap">
     <h1>arXiv semantic search</h1>
-    <p class="sub">Hybrid retrieval (BM25 + dense) over 10,000 ML paper abstracts, with optional cross-encoder reranking.</p>
+    <p class="sub" id="sub">Hybrid retrieval (BM25 + dense) over ML paper abstracts.</p>
   </div>
 </header>
 
@@ -76,6 +76,22 @@ const esc = s => s.replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c
 
 $("#go").onclick = search;
 $("#q").addEventListener("keydown", e => { if (e.key === "Enter") search(); });
+
+async function initFromHealth() {
+  try {
+    const h = await (await fetch("/health")).json();
+    document.getElementById("sub").textContent =
+      `Hybrid retrieval (BM25 + dense) over ${h.docs.toLocaleString()} ML paper abstracts.`;
+    if (!h.rerank_available) {
+      const box = document.getElementById("rerank");
+      box.checked = false;
+      box.disabled = true;
+      box.closest(".toggle").querySelector("small").textContent =
+        "disabled in production — costs 40x throughput on a 512MB instance";
+    }
+  } catch (e) { /* non-fatal */ }
+}
+initFromHealth();
 search();
 </script>
 </body>
