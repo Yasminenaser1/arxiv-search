@@ -2,8 +2,6 @@
 
 [![tests](https://github.com/Yasminenaser1/arxiv-search/actions/workflows/tests.yml/badge.svg)](https://github.com/Yasminenaser1/arxiv-search/actions/workflows/tests.yml)
 
-[![tests](https://github.com/Yasminenaser1/arxiv-search/actions/workflows/tests.yml/badge.svg)](https://github.com/Yasminenaser1/arxiv-search/actions/workflows/tests.yml)
-
 Semantic search over 50,000 ML paper abstracts — built to measure retrieval
 quality and serving cost, not just to work.
 
