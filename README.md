@@ -8,7 +8,7 @@ quality and serving cost, not just to work.
 **Live demo:** https://arxiv-search-mbrb.onrender.com
 (free tier — first request may take ~50s while the instance wakes)
 
-The interesting part of this project isn't the search. It's the four
+The interesting part of this project isn't the search. It's the five
 measurements below, each of which changed a design decision.
 
 ---
