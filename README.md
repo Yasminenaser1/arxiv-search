@@ -131,11 +131,24 @@ gives 512MB RAM and one weak CPU, and the reranked path would push a single
 user past a second per query. Measuring the best config and then shipping a
 cheaper one is the actual tradeoff, so it's documented rather than hidden.
 
+**Out-of-memory fix.** On Sep 23 the service started crash-looping: Render's
+events showed "Ran out of memory (used over 512MB)" on every startup. The cause
+was importing PyTorch and sentence-transformers just to encode one query, even
+with reranking off. Measured locally with the production config, the process
+used **613MB**. I swapped the query encoder to `fastembed`, which runs the same
+`all-MiniLM-L6-v2` model on ONNX Runtime, and moved the torch import behind the
+rerank flag so it only loads when reranking is on. The swap produced identical
+embeddings (cosine similarity 1.0000 on test queries), so the stored vectors and
+every quality number above are still valid. Memory dropped to **324MB** (−47%),
+all tests pass, and the service fits the 512MB tier with room to spare. The
+727ms Render latency in finding 4 was measured before this change.
+
 ---
 
 ## Architecture
 
-- **Dense:** `all-MiniLM-L6-v2`, 384-dim, normalized (cosine = dot product)
+- **Dense:** `all-MiniLM-L6-v2`, 384-dim, normalized (cosine = dot product).
+  Served via `fastembed` (ONNX Runtime) in the API, sentence-transformers offline.
 - **Sparse:** BM25Okapi over title + abstract
 - **Fusion:** RRF — combines *ranks*, not scores, so the two scales never
   need normalizing. A k-sweep from 10 to 100 moved MRR by 0.004, so the
