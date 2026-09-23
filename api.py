@@ -1,10 +1,7 @@
-import torch
-torch.set_num_threads(1)
-
 import json, pickle, re, time
 from contextlib import asynccontextmanager
 from fastapi import FastAPI, Query
-from sentence_transformers import SentenceTransformer, CrossEncoder
+from fastembed import TextEmbedding
 import numpy as np
 
 import os
@@ -20,8 +17,14 @@ async def lifespan(app):
     S["docs"] = [json.loads(l) for l in open(f"{DATA_DIR}/abstracts.jsonl")]
     S["vecs"] = np.load(f"{DATA_DIR}/embeddings.npy")
     S["bm25"] = pickle.load(open(f"{DATA_DIR}/bm25.pkl", "rb"))
-    S["bi"] = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2", device="cpu")
-    S["cross"] = CrossEncoder("cross-encoder/ms-marco-MiniLM-L-6-v2", max_length=512, device="cpu") if RERANK_AVAILABLE else None
+    S["bi"] = TextEmbedding("sentence-transformers/all-MiniLM-L6-v2", threads=1)
+    if RERANK_AVAILABLE:
+        import torch
+        torch.set_num_threads(1)
+        from sentence_transformers import CrossEncoder
+        S["cross"] = CrossEncoder("cross-encoder/ms-marco-MiniLM-L-6-v2", max_length=512, device="cpu")
+    else:
+        S["cross"] = None
     print(f"loaded {len(S['docs'])} docs in {time.time()-t0:.1f}s")
     yield
     S.clear()
@@ -36,7 +39,8 @@ from collections import deque
 HISTORY = deque(maxlen=200)
 
 def retrieve(query):
-    qv = S["bi"].encode([query], normalize_embeddings=True)[0]
+    qv = next(S["bi"].embed([query]))
+    qv = qv / np.linalg.norm(qv)
     dense = np.argsort(-(S["vecs"] @ qv))[:POOL]
     sparse = np.argsort(-S["bm25"].get_scores(tokenize(query)))[:POOL]
     fused = {}
